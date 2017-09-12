@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "allowJs": false,
+    "jsx": "react",
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "strict": true,
+    "noUnusedLocals": true,
+    "types": ["youtube", "node"],
+    "experimentalDecorators": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["./src"]
+}
