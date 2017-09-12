@@ -2,12 +2,12 @@ import Task from 'taskarian';
 
 declare global {
   interface Window {
-    onYouTubeIframeReady?: () => void;
+    onYouTubeIframeAPIReady?: () => void;
   }
 }
 
 const loadYouTube = new Task<undefined, undefined>((rejct, resolve) => {
-  window.onYouTubeIframeReady = () => resolve(undefined);
+  window.onYouTubeIframeAPIReady = () => resolve(undefined);
 
   if (typeof YT !== 'undefined' && typeof YT.Player !== 'undefined') {
     resolve(undefined);

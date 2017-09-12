@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var taskarian_1 = require("taskarian");
 var loadYouTube = new taskarian_1.default(function (rejct, resolve) {
-    window.onYouTubeIframeReady = function () { return resolve(undefined); };
+    window.onYouTubeIframeAPIReady = function () { return resolve(undefined); };
     if (typeof YT !== 'undefined' && typeof YT.Player !== 'undefined') {
         resolve(undefined);
     }
