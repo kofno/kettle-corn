@@ -6,6 +6,10 @@ declare global {
   }
 }
 
+/**
+ * Lazy Task. When forked, embeds the YouTube Iframe API in the current web
+ * page
+ */
 const loadYouTube = new Task<undefined, undefined>((rejct, resolve) => {
   window.onYouTubeIframeAPIReady = () => resolve(undefined);
 

@@ -11,7 +11,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var maybeasy_1 = require("maybeasy");
-var VideoState = /** @class */ (function () {
+/**
+ * Base type for states the video can be in
+ */
+var VideoState = (function () {
     function VideoState(position, duration) {
         this.position = position;
         this.duration = duration;
@@ -29,7 +32,13 @@ var VideoState = /** @class */ (function () {
     return VideoState;
 }());
 exports.VideoState = VideoState;
-var Initialized = /** @class */ (function (_super) {
+/**
+ * This state indicates that the VideoState has been initialized, but is not
+ * hooked up to any Video player yet.
+ *
+ * These are normalized across all possible video players.
+ */
+var Initialized = (function (_super) {
     __extends(Initialized, _super);
     function Initialized() {
         return _super.call(this, maybeasy_1.nothing(), maybeasy_1.nothing()) || this;
@@ -40,7 +49,10 @@ var Initialized = /** @class */ (function (_super) {
     return Initialized;
 }(VideoState));
 exports.Initialized = Initialized;
-var Ready = /** @class */ (function (_super) {
+/**
+ * The video is ready to play
+ */
+var Ready = (function (_super) {
     __extends(Ready, _super);
     function Ready() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -51,7 +63,10 @@ var Ready = /** @class */ (function (_super) {
     return Ready;
 }(VideoState));
 exports.Ready = Ready;
-var Playing = /** @class */ (function (_super) {
+/**
+ * This video is playing
+ */
+var Playing = (function (_super) {
     __extends(Playing, _super);
     function Playing() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -62,7 +77,10 @@ var Playing = /** @class */ (function (_super) {
     return Playing;
 }(VideoState));
 exports.Playing = Playing;
-var Paused = /** @class */ (function (_super) {
+/**
+ * The video paused
+ */
+var Paused = (function (_super) {
     __extends(Paused, _super);
     function Paused() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -73,7 +91,10 @@ var Paused = /** @class */ (function (_super) {
     return Paused;
 }(VideoState));
 exports.Paused = Paused;
-var Ended = /** @class */ (function (_super) {
+/**
+ * The video has ended
+ */
+var Ended = (function (_super) {
     __extends(Ended, _super);
     function Ended() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -84,7 +105,10 @@ var Ended = /** @class */ (function (_super) {
     return Ended;
 }(VideoState));
 exports.Ended = Ended;
-var Buffering = /** @class */ (function (_super) {
+/**
+ * Thie video is buffering
+ */
+var Buffering = (function (_super) {
     __extends(Buffering, _super);
     function Buffering() {
         return _super !== null && _super.apply(this, arguments) || this;

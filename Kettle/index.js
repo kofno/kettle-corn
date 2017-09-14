@@ -10,9 +10,20 @@ var mobx_1 = require("mobx");
 var Messages_1 = require("./Messages");
 var VideoState_1 = require("./VideoState");
 var maybeasy_1 = require("maybeasy");
-var Kettle = /** @class */ (function () {
+/**
+ * The Kettle holds the video state. State is made observable by MobX.
+ * Messages can also be sent to an observing video player using the
+ * Kettle
+ *
+ *     const kettle = new Kettle();
+ *     kettle.seekTo(30);
+ *
+ */
+var Kettle = (function () {
     function Kettle() {
+        /** Current state of the Video */
         this.videoState = new VideoState_1.Initialized();
+        /** Messages to send to the embedded player */
         this.videoMessage = [];
     }
     Kettle.prototype.setVideoState = function (state) {
@@ -26,6 +37,12 @@ var Kettle = /** @class */ (function () {
     };
     Kettle.prototype.seekTo = function (time) {
         this.sendMessage(new Messages_1.SeekTo(time));
+    };
+    Kettle.prototype.play = function () {
+        this.sendMessage(new Messages_1.Play());
+    };
+    Kettle.prototype.pause = function () {
+        this.sendMessage(new Messages_1.Pause());
     };
     __decorate([
         mobx_1.observable
@@ -45,6 +62,12 @@ var Kettle = /** @class */ (function () {
     __decorate([
         mobx_1.action
     ], Kettle.prototype, "seekTo", null);
+    __decorate([
+        mobx_1.action
+    ], Kettle.prototype, "play", null);
+    __decorate([
+        mobx_1.action
+    ], Kettle.prototype, "pause", null);
     return Kettle;
 }());
 exports.default = Kettle;

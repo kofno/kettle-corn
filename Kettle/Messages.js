@@ -10,13 +10,20 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var VideoMessage = /** @class */ (function () {
+/**
+ * Base class for building a video message. Message Types are normalized
+ * across video presentations.
+ */
+var VideoMessage = (function () {
     function VideoMessage() {
     }
     return VideoMessage;
 }());
 exports.VideoMessage = VideoMessage;
-var Play = /** @class */ (function (_super) {
+/**
+ * Tells the video to start playing
+ */
+var Play = (function (_super) {
     __extends(Play, _super);
     function Play() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -27,7 +34,10 @@ var Play = /** @class */ (function (_super) {
     return Play;
 }(VideoMessage));
 exports.Play = Play;
-var Pause = /** @class */ (function (_super) {
+/**
+ * Tells the video to pause playback
+ */
+var Pause = (function (_super) {
     __extends(Pause, _super);
     function Pause() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -38,7 +48,10 @@ var Pause = /** @class */ (function (_super) {
     return Pause;
 }(VideoMessage));
 exports.Pause = Pause;
-var SeekTo = /** @class */ (function (_super) {
+/**
+ * Tells the video to seek to a particular position
+ */
+var SeekTo = (function (_super) {
     __extends(SeekTo, _super);
     function SeekTo(position) {
         var _this = _super.call(this) || this;

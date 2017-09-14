@@ -22,10 +22,17 @@ var mobx_react_1 = require("mobx-react");
 var maybeasy_1 = require("maybeasy");
 var Loader_1 = require("./Loader");
 var VideoState_1 = require("./../Kettle/VideoState");
-var YouTube = /** @class */ (function (_super) {
+/**
+ * YouTube component for embedding a YouVideo in a page. Compatible with a
+ * MobX Kettle.
+ */
+var YouTube = (function (_super) {
     __extends(YouTube, _super);
     function YouTube() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        /**
+         * Maps YouTube states to a Kettle VideoStata
+         */
         _this.mapState = function (state, position, duration) {
             switch (state) {
                 case YT.PlayerState.BUFFERING:
@@ -42,6 +49,9 @@ var YouTube = /** @class */ (function (_super) {
                     return new VideoState_1.Initialized();
             }
         };
+        /**
+         * Updates the state of the Kettle from the state of the player
+         */
         _this.updateKettle = function (player) {
             var kettle = _this.props.kettle;
             var state = player.getPlayerState();
@@ -50,6 +60,10 @@ var YouTube = /** @class */ (function (_super) {
             var duration = d === 0 ? maybeasy_1.nothing() : maybeasy_1.just(d);
             return kettle.setVideoState(_this.mapState(state, time, duration));
         };
+        /**
+         * Register an observer that watchers for when messages are sent through the
+         * Kettle to this component.
+         */
         _this.registerKettleReactions = function (kettle, player) {
             mobx_1.reaction(function () { return kettle.videoMessage.length; }, function (_length) {
                 kettle.popMessage().map(function (msg) {

@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var taskarian_1 = require("taskarian");
+/**
+ * Lazy Task. When forked, embeds the YouTube Iframe API in the current web
+ * page
+ */
 var loadYouTube = new taskarian_1.default(function (rejct, resolve) {
     window.onYouTubeIframeAPIReady = function () { return resolve(undefined); };
     if (typeof YT !== 'undefined' && typeof YT.Player !== 'undefined') {

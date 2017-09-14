@@ -12,6 +12,7 @@
     "@types/youtube": "^0.0.31",
     "tslint": "^5.7.0",
     "tslint-react": "^3.2.0",
+    "typedoc": "^0.8.0",
     "typescript": "^2.5.2"
   },
   "peerDependencies": {
@@ -27,6 +28,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "docs": "typedoc --out docs && touch docs/.nojekyll"
   }
 }

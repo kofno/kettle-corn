@@ -14,6 +14,9 @@ import {
   Initialized,
 } from './../Kettle/VideoState';
 
+/**
+ * Props for embedding a YouTube video
+ */
 export interface Props {
   id: string;
   className: string;
@@ -21,10 +24,17 @@ export interface Props {
   kettle: Kettle;
 }
 
+/**
+ * YouTube component for embedding a YouVideo in a page. Compatible with a
+ * MobX Kettle.
+ */
 @observer
 class YouTube extends React.Component<Props, {}> {
   private container: HTMLDivElement | null;
 
+  /**
+   * Maps YouTube states to a Kettle VideoStata
+   */
   mapState = (state: YT.PlayerState, position: number, duration: Maybe<number>): VideoState => {
     switch (state) {
       case YT.PlayerState.BUFFERING:
@@ -42,6 +52,9 @@ class YouTube extends React.Component<Props, {}> {
     }
   };
 
+  /**
+   * Updates the state of the Kettle from the state of the player
+   */
   updateKettle = (player: YT.Player) => {
     const { kettle } = this.props;
     const state = player.getPlayerState();
@@ -51,6 +64,10 @@ class YouTube extends React.Component<Props, {}> {
     return kettle.setVideoState(this.mapState(state, time, duration));
   };
 
+  /**
+   * Register an observer that watchers for when messages are sent through the
+   * Kettle to this component.
+   */
   registerKettleReactions = (kettle: Kettle, player: YT.Player) => {
     reaction(
       () => kettle.videoMessage.length,
