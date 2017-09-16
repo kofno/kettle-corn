@@ -8,7 +8,7 @@ on that webpage respond to video progress. You can use events and manipulate the
 DOM directly, but that becomes a mess pretty quickly.
 
 This library tries to simplify that process by providing a React component for
-embedding video (only YouTube supported, so far) and making the video state
+embedding video (YouTube and Vimeo supported, so far) and making the video state
 observable using MobX.
 
 Demo: http://kettle-corn-demo.surge.sh/
