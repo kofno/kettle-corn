@@ -32,6 +32,7 @@ export interface Props {
 class YouTube extends React.Component<Props, {}> {
   private container: HTMLDivElement | null;
   private player: YT.Player | undefined;
+  private timer: NodeJS.Timer | undefined;
 
   /**
    * Maps YouTube states to a Kettle VideoStata
@@ -100,7 +101,7 @@ class YouTube extends React.Component<Props, {}> {
           this.registerKettleReactions(kettle, target);
           this.updateKettle(target);
           // YouTube doesn't fire continual updates while playing or scrubbing
-          setInterval(() => {
+          this.timer = setInterval(() => {
             this.updateKettle(target);
           }, 250);
         });
@@ -111,8 +112,14 @@ class YouTube extends React.Component<Props, {}> {
   }
 
   componentWillUnmount() {
-    if (typeof this.player === 'undefined') return;
-    this.player.destroy();
+    if (typeof this.timer !== 'undefined') {
+      clearInterval(this.timer);
+    }
+
+    if (typeof this.player !== 'undefined') {
+      this.player.destroy();
+      this.player = undefined;
+    }
   }
 
   refContainer = (container: HTMLDivElement | null) => {

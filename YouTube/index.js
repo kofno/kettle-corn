@@ -97,7 +97,7 @@ var YouTube = (function (_super) {
                 _this.registerKettleReactions(kettle, target);
                 _this.updateKettle(target);
                 // YouTube doesn't fire continual updates while playing or scrubbing
-                setInterval(function () {
+                _this.timer = setInterval(function () {
                     _this.updateKettle(target);
                 }, 250);
             });
@@ -109,9 +109,13 @@ var YouTube = (function (_super) {
         });
     };
     YouTube.prototype.componentWillUnmount = function () {
-        if (typeof this.player === 'undefined')
-            return;
-        this.player.destroy();
+        if (typeof this.timer !== 'undefined') {
+            clearInterval(this.timer);
+        }
+        if (typeof this.player !== 'undefined') {
+            this.player.destroy();
+            this.player = undefined;
+        }
     };
     YouTube.prototype.render = function () {
         var _a = this.props, id = _a.id, className = _a.className;

@@ -19,6 +19,7 @@ export interface Props {
 declare class YouTube extends React.Component<Props, {}> {
     private container;
     private player;
+    private timer;
     /**
      * Maps YouTube states to a Kettle VideoStata
      */
