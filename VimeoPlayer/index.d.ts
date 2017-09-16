@@ -1,3 +1,4 @@
+/// <reference path="../src/vimeo.d.ts" />
 import * as React from 'react';
 import Kettle from './../Kettle';
 import { VideoState } from './../Kettle/VideoState';

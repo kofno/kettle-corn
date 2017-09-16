@@ -1,3 +1,4 @@
+/// <reference path="../vimeo.d.ts"/>
 import * as React from 'react';
 import { reaction } from 'mobx';
 import { observer } from 'mobx-react';

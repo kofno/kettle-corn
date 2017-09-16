@@ -16,6 +16,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/// <reference path="../vimeo.d.ts"/>
 var React = require("react");
 var mobx_1 = require("mobx");
 var mobx_react_1 = require("mobx-react");
