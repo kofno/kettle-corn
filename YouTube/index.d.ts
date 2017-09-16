@@ -18,6 +18,7 @@ export interface Props {
  */
 declare class YouTube extends React.Component<Props, {}> {
     private container;
+    private player;
     /**
      * Maps YouTube states to a Kettle VideoStata
      */
@@ -32,6 +33,7 @@ declare class YouTube extends React.Component<Props, {}> {
      */
     registerKettleReactions: (kettle: Kettle, player: YT.Player) => void;
     componentDidMount(): void;
+    componentWillUnmount(): void;
     refContainer: (container: HTMLDivElement | null) => void;
     render(): JSX.Element;
 }

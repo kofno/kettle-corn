@@ -31,6 +31,7 @@ export interface Props {
 @observer
 class YouTube extends React.Component<Props, {}> {
   private container: HTMLDivElement | null;
+  private player: YT.Player | undefined;
 
   /**
    * Maps YouTube states to a Kettle VideoStata
@@ -104,8 +105,14 @@ class YouTube extends React.Component<Props, {}> {
           }, 250);
         });
         player.addEventListener('onStateChange', ({ target }) => this.updateKettle(target));
+        this.player = player;
       },
     );
+  }
+
+  componentWillUnmount() {
+    if (typeof this.player === 'undefined') return;
+    this.player.destroy();
   }
 
   refContainer = (container: HTMLDivElement | null) => {

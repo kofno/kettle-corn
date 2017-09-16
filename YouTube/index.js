@@ -105,7 +105,13 @@ var YouTube = (function (_super) {
                 var target = _a.target;
                 return _this.updateKettle(target);
             });
+            _this.player = player;
         });
+    };
+    YouTube.prototype.componentWillUnmount = function () {
+        if (typeof this.player === 'undefined')
+            return;
+        this.player.destroy();
     };
     YouTube.prototype.render = function () {
         var _a = this.props, id = _a.id, className = _a.className;
