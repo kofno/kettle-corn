@@ -11,9 +11,6 @@ This library tries to simplify that process by providing a React component for
 embedding video (YouTube and Vimeo supported, so far) and making the video state
 observable using MobX.
 
-Demo: http://kettle-corn-demo.surge.sh/
-Demo source: https://github.com/kofno/kettle-corn-demo
-
 ## the kettle
 The Kettle -- named after an ongoing popcorn/movie joke -- stores the data from
 the embedded videos. The embedding copmponents in kettle corn update the state
@@ -36,6 +33,12 @@ components.
 To switch to a Vimeo video, you only need to swap the YouTube component for the
 VimeoPlayer component. The rest of your page can stay intact, since it is bound
 to the Kettle, rather then a particular player.
+
+## see more
+Still not sure? Want to see it in action? Great! I have just the thing!
+
+  * Demo: http://kettle-corn-demo.surge.sh/
+  * Demo Source: https://github.com/kofno/kettle-corn-demo
 
 ## install
 
