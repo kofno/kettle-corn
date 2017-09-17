@@ -14,6 +14,29 @@ observable using MobX.
 Demo: http://kettle-corn-demo.surge.sh/
 Demo source: https://github.com/kofno/kettle-corn-demo
 
+## the kettle
+The Kettle -- named after an ongoing popcorn/movie joke -- stores the data from
+the embedded videos. The embedding copmponents in kettle corn update the state
+of the kettle, which is made observable by MobX.
+
+Since the state of the Kettle can be observed, it is possible to react to changes
+in the video state, synchronizing it with other parts of the application.
+
+The Kettle also holds an observable message queue. This allows other components
+to make requests of the embedded video components. A video component observes
+the message queue and reacts to any changes. Based on the message, it can
+change the state of the player (Play, Pause, Seek to a position, etc.).
+
+## embedding videos
+Kettle corn provides React components that work with the Kettle. For example,
+the YouTube component embeds a YouTube player. It takes a Kettle as a property.
+When the video updates, it updates the Kettle, which can be observed by other
+components.
+
+To switch to a Vimeo video, you only need to swap the YouTube component for the
+VimeoPlayer component. The rest of your page can stay intact, since it is bound
+to the Kettle, rather then a particular player.
+
 ## install
 
     $> yarn add kettle-corn
