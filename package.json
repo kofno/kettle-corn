@@ -1,6 +1,6 @@
 {
   "name": "kettle-corn",
-  "version": "1.1.3",
+  "version": "0.0.0-development",
   "description": "Synchronize an embedded video player with other components on a page",
   "main": "index.js",
   "repository": "https://github.com/kofno/kettle-corn",
@@ -13,7 +13,8 @@
     "tslint": "^5.7.0",
     "tslint-react": "^3.2.0",
     "typedoc": "^0.8.0",
-    "typescript": "^2.5.2"
+    "typescript": "^2.5.2",
+    "semantic-release": "^8.0.3"
   },
   "peerDependencies": {
     "mobx": "^3.2.2",
@@ -29,6 +30,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "docs": "typedoc --out docs && touch docs/.nojekyll"
+    "docs": "typedoc --out docs && touch docs/.nojekyll",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   }
 }
