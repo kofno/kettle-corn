@@ -65,6 +65,8 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="kettle-corn">kettle-corn</h1>
+				<p><a href="https://travis-ci.org/kofno/kettle-corn"><img src="https://travis-ci.org/kofno/kettle-corn.svg?branch=master" alt="Build Status"></a>
+				<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=plastic" alt="semantic-release"></a></p>
 				<p>A MobX Store that reflects video state so it can be synchronized with other page
 				components.</p>
 				<h2 id="wut-">wut?</h2>
@@ -74,8 +76,30 @@
 				<p>This library tries to simplify that process by providing a React component for
 					embedding video (YouTube and Vimeo supported, so far) and making the video state
 				observable using MobX.</p>
-				<p>Demo: <a href="http://kettle-corn-demo.surge.sh/">http://kettle-corn-demo.surge.sh/</a>
-				Demo source: <a href="https://github.com/kofno/kettle-corn-demo">https://github.com/kofno/kettle-corn-demo</a></p>
+				<h2 id="the-kettle">the kettle</h2>
+				<p>The Kettle -- named after an ongoing popcorn/movie joke -- stores the data from
+					the embedded videos. The embedding copmponents in kettle corn update the state
+				of the kettle, which is made observable by MobX.</p>
+				<p>Since the state of the Kettle can be observed, it is possible to react to changes
+				in the video state, synchronizing it with other parts of the application.</p>
+				<p>The Kettle also holds an observable message queue. This allows other components
+					to make requests of the embedded video components. A video component observes
+					the message queue and reacts to any changes. Based on the message, it can
+				change the state of the player (Play, Pause, Seek to a position, etc.).</p>
+				<h2 id="embedding-videos">embedding videos</h2>
+				<p>Kettle corn provides React components that work with the Kettle. For example,
+					the YouTube component embeds a YouTube player. It takes a Kettle as a property.
+					When the video updates, it updates the Kettle, which can be observed by other
+				components.</p>
+				<p>To switch to a Vimeo video, you only need to swap the YouTube component for the
+					VimeoPlayer component. The rest of your page can stay intact, since it is bound
+				to the Kettle, rather then a particular player.</p>
+				<h2 id="see-more">see more</h2>
+				<p>Still not sure? Want to see it in action? Great! I have just the thing!</p>
+				<ul>
+					<li>Demo: <a href="http://kettle-corn-demo.surge.sh/">http://kettle-corn-demo.surge.sh/</a></li>
+					<li>Demo Source: <a href="https://github.com/kofno/kettle-corn-demo">https://github.com/kofno/kettle-corn-demo</a></li>
+				</ul>
 				<h2 id="install">install</h2>
 				<pre><code><span class="hljs-meta">$</span><span class="bash">&gt; yarn add kettle-corn</span>
 <span class="hljs-meta">

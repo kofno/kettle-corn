@@ -28,9 +28,8 @@ export interface Props {
  * YouTube component for embedding a YouVideo in a page. Compatible with a
  * MobX Kettle.
  */
-@observer
 class YouTube extends React.Component<Props, {}> {
-  private container: HTMLDivElement | null;
+  private container?: HTMLDivElement | null;
   private player: YT.Player | undefined;
   private timer: NodeJS.Timer | undefined;
 
@@ -122,7 +121,7 @@ class YouTube extends React.Component<Props, {}> {
     }
   }
 
-  refContainer = (container: HTMLDivElement | null) => {
+  refContainer = (container?: HTMLDivElement | null) => {
     this.container = container;
   };
 
@@ -136,4 +135,4 @@ class YouTube extends React.Component<Props, {}> {
   }
 }
 
-export default YouTube;
+export default observer(YouTube);
