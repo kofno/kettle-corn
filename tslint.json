@@ -5,7 +5,7 @@
   "rules": {
     "align": [true, "parameters", "statements"],
     "ban": false,
-    "class-name": true,
+    "class-name": false,
     "comment-format": [true, "check-space"],
     "curly": [true, "ignore-same-line"],
     "eofline": false,

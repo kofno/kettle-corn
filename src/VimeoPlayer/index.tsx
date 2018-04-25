@@ -28,7 +28,7 @@ const currentPos = (player: Vimeo.Player): Promise<Maybe<number>> =>
 const currentDuration = (player: Vimeo.Player): Promise<Maybe<number>> =>
   player.getDuration().then(dur => (dur > 0 ? just(dur) : nothing()));
 
-class VimeoPlayer extends React.Component<Props, {}> {
+export class _VimeoPlayer extends React.Component<Props, {}> {
   private container?: HTMLDivElement | null;
   private player: Vimeo.Player | undefined;
 
@@ -135,4 +135,4 @@ class VimeoPlayer extends React.Component<Props, {}> {
   }
 }
 
-export default observer(VimeoPlayer);
+export default observer(_VimeoPlayer);
