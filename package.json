@@ -13,7 +13,7 @@
     "semantic-release": "^8.0.3",
     "tslint": "^5.7.0",
     "tslint-react": "^3.2.0",
-    "typedoc": "^0.11.0",
+    "typedoc": "^0.11.1",
     "typescript": "^2.7.0"
   },
   "peerDependencies": {
@@ -22,7 +22,7 @@
     "react": "^15.6.1"
   },
   "dependencies": {
-    "maybeasy": "^1.1.1",
+    "maybeasy": "^2.2.0",
     "mobx": "^4.2.0",
     "mobx-react": "^5.0.0",
     "taskarian": "^1.1.2"

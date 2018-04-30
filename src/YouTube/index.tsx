@@ -61,7 +61,7 @@ export class _YouTube extends React.Component<Props, {}> {
     const state = player.getPlayerState();
     const time = player.getCurrentTime();
     const d = player.getDuration();
-    const duration = d === 0 ? nothing() : just(d);
+    const duration = d === 0 ? nothing<number>() : just(d);
     return kettle.setVideoState(this.mapState(state, time, duration));
   };
 

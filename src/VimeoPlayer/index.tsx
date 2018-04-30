@@ -26,7 +26,7 @@ const currentPos = (player: Vimeo.Player): Promise<Maybe<number>> =>
   player.getCurrentTime().then(just);
 
 const currentDuration = (player: Vimeo.Player): Promise<Maybe<number>> =>
-  player.getDuration().then(dur => (dur > 0 ? just(dur) : nothing()));
+  player.getDuration().then(dur => (dur > 0 ? just(dur) : nothing<number>()));
 
 export class _VimeoPlayer extends React.Component<Props, {}> {
   private container?: HTMLDivElement | null;
