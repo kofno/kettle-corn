@@ -12,7 +12,7 @@ import {
   Paused,
   Ended,
   Initialized,
-} from './../Kettle/VideoState';
+} from '../Kettle/VideoState';
 
 /**
  * Props for embedding a YouTube video

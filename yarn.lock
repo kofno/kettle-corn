@@ -96,9 +96,9 @@
     "@types/glob" "*"
     "@types/node" "*"
 
-"@types/youtube@^0.0.31":
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/@types/youtube/-/youtube-0.0.31.tgz#dbea44373862cbcb6c9a8d974c379e51879aa2b2"
+"@types/youtube@^0.0.32":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@types/youtube/-/youtube-0.0.32.tgz#b53ebc75e6646d7dc46295b8eceb5f1e596f68ae"
 
 JSONStream@^1.0.4:
   version "1.3.1"
@@ -1863,7 +1863,7 @@ typedoc-default-themes@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/typedoc-default-themes/-/typedoc-default-themes-0.5.0.tgz#6dc2433e78ed8bea8e887a3acde2f31785bd6227"
 
-typedoc@^0.11.0:
+typedoc@^0.11.1:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.11.1.tgz#9f033887fd2218c769e1045feb88a1efed9f12c9"
   dependencies:
