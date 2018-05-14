@@ -9,7 +9,6 @@
   "devDependencies": {
     "@types/node": "^8.0.28",
     "@types/react": "^16.1.0",
-    "@types/youtube": "^0.0.32",
     "semantic-release": "^8.0.3",
     "tslint": "^5.7.0",
     "tslint-react": "^3.2.0",
@@ -25,7 +24,8 @@
     "maybeasy": "^2.2.0",
     "mobx": "^4.2.0",
     "mobx-react": "^5.0.0",
-    "taskarian": "^1.1.2"
+    "taskarian": "^1.1.2",
+    "@types/youtube": "^0.0.32"
   },
   "scripts": {
     "build": "tsc",
