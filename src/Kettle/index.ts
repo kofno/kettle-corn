@@ -1,8 +1,8 @@
-import { observable, action } from 'mobx';
-import { VideoMessage, SeekTo, Play, Pause } from './Messages';
+import { fromNullable, Maybe } from 'maybeasy';
+import { action, observable } from 'mobx';
+import { Pause, Play, SeekTo, VideoMessage } from './Messages';
 import { Seconds } from './Types';
-import { VideoState, Initialized } from './VideoState';
-import { Maybe, fromNullable } from 'maybeasy';
+import { Initialized, VideoState } from './VideoState';
 
 /**
  * The Kettle holds the video state. State is made observable by MobX.
@@ -15,40 +15,42 @@ import { Maybe, fromNullable } from 'maybeasy';
  */
 class Kettle {
   /** Current state of the Video */
-  @observable videoState: VideoState = new Initialized();
+  @observable
+  videoState: VideoState = new Initialized();
 
   /** Messages to send to the embedded player */
-  @observable videoMessage: VideoMessage[] = [];
+  @observable
+  videoMessage: VideoMessage[] = [];
 
   @action
-  setVideoState(state: VideoState) {
+  setVideoState = (state: VideoState) => {
     this.videoState = state;
-  }
+  };
 
   @action
-  sendMessage(msg: VideoMessage) {
+  sendMessage = (msg: VideoMessage) => {
     this.videoMessage.push(msg);
-  }
+  };
 
   @action
-  popMessage(): Maybe<VideoMessage> {
+  popMessage = (): Maybe<VideoMessage> => {
     return fromNullable(this.videoMessage.pop());
-  }
+  };
 
   @action
-  seekTo(time: Seconds) {
+  seekTo = (time: Seconds) => {
     this.sendMessage(new SeekTo(time));
-  }
+  };
 
   @action
-  play() {
+  play = () => {
     this.sendMessage(new Play());
-  }
+  };
 
   @action
-  pause() {
+  pause = () => {
     this.sendMessage(new Pause());
-  }
+  };
 }
 
 export default Kettle;
