@@ -1,18 +1,18 @@
 /// <reference path="../vimeo.d.ts"/>
-import * as React from 'react';
+import { just, Maybe, nothing } from 'maybeasy';
 import { reaction } from 'mobx';
 import { observer } from 'mobx-react';
+import * as React from 'react';
 import Kettle from './../Kettle';
 import {
-  VideoState,
-  Playing,
-  Paused,
-  Ready,
-  Ended,
   Buffering,
+  Ended,
   Initialized,
+  Paused,
+  Playing,
+  Ready,
+  VideoState,
 } from './../Kettle/VideoState';
-import { Maybe, just, nothing } from 'maybeasy';
 import loadVimeo from './Loader';
 
 export interface Props {
@@ -20,6 +20,10 @@ export interface Props {
   id: string;
   className: string;
   videoId: number;
+  height?: number;
+  width?: number;
+  maxheight?: number;
+  maxwidth?: number;
 }
 
 const currentPos = (player: Vimeo.Player): Promise<Maybe<number>> =>
@@ -27,6 +31,17 @@ const currentPos = (player: Vimeo.Player): Promise<Maybe<number>> =>
 
 const currentDuration = (player: Vimeo.Player): Promise<Maybe<number>> =>
   player.getDuration().then(dur => (dur > 0 ? just(dur) : nothing<number>()));
+
+const vimeoOptions = (props: Props): Vimeo.Options => {
+  const { videoId, height, width, maxheight, maxwidth } = props;
+  return {
+    id: videoId,
+    height,
+    width,
+    maxheight,
+    maxwidth,
+  };
+};
 
 export class _VimeoPlayer extends React.Component<Props, {}> {
   private container?: HTMLDivElement | null;
@@ -48,15 +63,15 @@ export class _VimeoPlayer extends React.Component<Props, {}> {
             seekTo: pos => {
               player.setCurrentTime(pos);
             },
-          }),
+          })
         );
-      },
+      }
     );
   };
 
   updateKettle = (
     player: Vimeo.Player,
-    fn: (pos: Maybe<number>, dur: Maybe<number>) => VideoState,
+    fn: (pos: Maybe<number>, dur: Maybe<number>) => VideoState
   ) => {
     const { kettle } = this.props;
     // prettier-ignore
@@ -86,17 +101,16 @@ export class _VimeoPlayer extends React.Component<Props, {}> {
         buffering: () => new Buffering(pos, dur),
         ready: () => new Ready(pos, dur),
         initialized: () => new Initialized(),
-      }),
+      })
     );
   };
 
   componentDidMount() {
-    const { videoId } = this.props;
     loadVimeo.fork(
       err => console.warn(err),
       () => {
         if (!this.container) return;
-        const player = new Vimeo.Player(this.container, { id: videoId });
+        const player = new Vimeo.Player(this.container, vimeoOptions(this.props));
         player.ready().then(() => {
           this.registerKettleReactions(player);
           this.ready(player);
@@ -106,7 +120,7 @@ export class _VimeoPlayer extends React.Component<Props, {}> {
           player.on('seeked', this.handleTime(player));
           player.on('ended', this.handleEnd(player));
         });
-      },
+      }
     );
   }
 

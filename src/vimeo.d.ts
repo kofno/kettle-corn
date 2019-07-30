@@ -18,7 +18,7 @@ declare namespace Vimeo {
   interface VimeoPromise<Result, Reason> extends Promise<Result> {
     (
       successCallback?: (promiseValue: Result) => void,
-      rejectCallback?: (reasonValue: Reason) => void,
+      rejectCallback?: (reasonValue: Reason) => void
     ): Promise<Result>;
   }
 
@@ -118,7 +118,7 @@ declare namespace Vimeo {
     ready(): VimeoPromise<void, Error>;
     enableTextTrack(
       language: string,
-      kind?: string,
+      kind?: string
     ): VimeoPromise<VimeoTextTrack, InvalidTrackLanguageError | InvalidTrackError | Error>;
     disableTextTrack(): VimeoPromise<void, Error>;
     pause(): VimeoPromise<void, PasswordError | PrivacyError | Error>;
@@ -130,7 +130,7 @@ declare namespace Vimeo {
     setColor(color: string): VimeoPromise<string, ContrastError | TypeError | Error>;
     addCuePoint(
       time: number,
-      data: VimeoCuePointData,
+      data: VimeoCuePointData
     ): VimeoPromise<string, UnsupportedError | RangeError | Error>;
     removeCuePoint(id: string): VimeoPromise<string, UnsupportedError | InvalidCuePoint | Error>;
     getCuePoints(): VimeoPromise<VimeoCuePoint[], UnsupportedError | Error>;

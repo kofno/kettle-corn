@@ -2055,10 +2055,10 @@ supports-color@^4.0.0:
   dependencies:
     has-flag "^2.0.0"
 
-taskarian@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/taskarian/-/taskarian-1.5.0.tgz#ce205a83a2de53d2b1800a5f57c93b7bec2f7277"
-  integrity sha512-2B13UINVRclepsMVaYaDsZd9wHLlEL/JgOIFDLEnEIBAghrYAucyWnv31xB2XxhVI7Xj+aSt7Xc18vMiQQPOIg==
+taskarian@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/taskarian/-/taskarian-2.0.2.tgz#a1d77475b067d67b22250ca6614cb9d55e65d783"
+  integrity sha512-iNaLdp4cTiCViC7UuadPrqROgNw6BdlSrbuZTe6DYVJV0CROuQ+nmQBtZkp+OocpYr9s47I1EirxsbdVfpJodA==
 
 text-extensions@^1.0.0:
   version "1.6.0"
@@ -2206,10 +2206,10 @@ typescript@2.7.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.2.tgz#2d615a1ef4aee4f574425cdff7026edf81919836"
   integrity sha512-p5TCYZDAO0m4G344hD+wx/LATebLWZNkkh2asWUFqSsD2OrDNhbAHuSjobrmsUmdzjJjEeZVU9g1h3O6vpstnw==
 
-typescript@^2.7.0:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.1.tgz#6160e4f8f195d5ba81d4876f9c0cc1fbc0820624"
-  integrity sha512-Ao/f6d/4EPLq0YwzsQz8iXflezpTkQzqAyenTiw4kCUGr1uPiFLC3+fZ+gMZz6eeI/qdRUqvC+HxIJzUAzEFdg==
+typescript@^3.5.2:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
+  integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
 
 uglify-js@^2.6:
   version "2.8.29"
