@@ -1,4 +1,4 @@
-import Task from 'taskarian';
+import { Task } from 'taskarian';
 
 declare global {
   interface Window {

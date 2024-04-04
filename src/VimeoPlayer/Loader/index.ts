@@ -1,4 +1,4 @@
-import Task from 'taskarian';
+import { Task } from 'taskarian';
 
 const loadVimeo = new Task<undefined, undefined>((reject, resolve) => {
   if (typeof Vimeo !== 'undefined' && typeof Vimeo.Player !== 'undefined') {
