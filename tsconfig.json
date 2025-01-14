@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
-    "lib": ["es6", "dom"],
+    "lib": ["esnext", "dom"],
     "allowJs": false,
     "jsx": "react",
     "declaration": true,
@@ -13,7 +13,8 @@
     "strict": true,
     "noUnusedLocals": true,
     "types": ["youtube", "node"],
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "esModuleInterop": true
   },
   "exclude": ["node_modules"],
   "include": ["./src"]
