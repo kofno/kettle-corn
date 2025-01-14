@@ -1,5 +1,5 @@
 import { fromNullable, Maybe } from 'maybeasy';
-import { action, observable } from 'mobx';
+import { action, observable, makeObservable } from 'mobx';
 import { Pause, Play, SeekTo, VideoMessage } from './Messages';
 import { Seconds } from './Types';
 import { Initialized, VideoState } from './VideoState';
@@ -21,6 +21,10 @@ class Kettle {
   /** Messages to send to the embedded player */
   @observable
   videoMessage: VideoMessage[] = [];
+
+  constructor() {
+    makeObservable(this);
+  }
 
   @action
   setVideoState = (state: VideoState) => {

@@ -31,7 +31,7 @@ export interface Props {
 export class _YouTube extends React.Component<Props, {}> {
   private container?: HTMLDivElement | null;
   private player: YT.Player | undefined;
-  private timer: NodeJS.Timer | undefined;
+  private timer: NodeJS.Timeout | undefined;
 
   /**
    * Maps YouTube states to a Kettle VideoStata
@@ -73,21 +73,21 @@ export class _YouTube extends React.Component<Props, {}> {
     reaction(
       () => kettle.videoMessage.length,
       (_length: number) => {
-        kettle.popMessage().map(msg => {
+        kettle.popMessage().map((msg) => {
           msg.cata({
             play: () => player.playVideo(),
             pause: () => player.pauseVideo(),
-            seekTo: pos => player.seekTo(pos, true),
+            seekTo: (pos) => player.seekTo(pos, true),
           });
         });
-      },
+      }
     );
   };
 
   componentDidMount() {
     const { videoId, kettle } = this.props;
     loadYouTube.fork(
-      err => console.warn(err),
+      (err) => console.warn(err),
       () => {
         if (!this.container) return;
         const player = new YT.Player(this.container, {
@@ -106,7 +106,7 @@ export class _YouTube extends React.Component<Props, {}> {
         });
         player.addEventListener('onStateChange', ({ target }) => this.updateKettle(target));
         this.player = player;
-      },
+      }
     );
   }
 
