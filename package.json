@@ -1,6 +1,6 @@
 {
   "name": "kettle-corn",
-  "version": "0.0.0-development",
+  "version": "4.0.0",
   "description": "Synchronize an embedded video player with other components on a page",
   "main": "index.js",
   "repository": "https://github.com/kofno/kettle-corn",
